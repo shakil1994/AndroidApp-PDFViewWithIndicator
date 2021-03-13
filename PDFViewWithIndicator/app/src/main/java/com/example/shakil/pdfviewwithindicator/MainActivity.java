@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.util.FitPolicy;
 
 public class MainActivity extends AppCompatActivity implements OnLoadCompleteListener, OnPageChangeListener {
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
                 .defaultPage(0)
                 .onLoad(this)
                 .onPageChange(this)
+                .pageFitPolicy(FitPolicy.BOTH)
                 .load();
     }
 
