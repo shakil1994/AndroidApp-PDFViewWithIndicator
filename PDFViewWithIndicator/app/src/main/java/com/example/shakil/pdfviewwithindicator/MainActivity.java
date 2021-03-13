@@ -57,9 +57,10 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
         dot = new TextView[dotCount];
         layoutDot.removeAllViews();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(10,10,10,10);
+        params.setMargins(10, 10, 10, 10);
 
-        for (int i = 0; i < dot.length; i++) {;
+        for (int i = 0; i < dot.length; i++) {
+            ;
             dot[i] = new TextView(this);
             //dot[i].setText(Html.fromHtml("&#9673;"));
             dot[i].setBackground(getResources().getDrawable(R.drawable.blank_circle));
