@@ -11,10 +11,12 @@ import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener
 
 class MainActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageChangeListener {
+
     var pdfView: PDFView? = null
     var layoutDot: LinearLayout? = null
     lateinit var dot: Array<TextView?>
     var dotCount = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,17 +25,17 @@ class MainActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageChangeLi
         layoutDot = findViewById(R.id.layoutDot)
 
         pdfView!!.fromAsset("englishgrammarbook.pdf")
-                .enableSwipe(true)
-                .swipeHorizontal(true)
-                .spacing(0)
-                .autoSpacing(true)
-                .pageSnap(true)
-                .pageFling(true)
-                .enableDoubletap(true)
-                .defaultPage(0)
-                .onLoad(this)
-                .onPageChange(this)
-                .load()
+            .enableSwipe(true)
+            .swipeHorizontal(true)
+            .spacing(0)
+            .autoSpacing(true)
+            .pageSnap(true)
+            .pageFling(true)
+            .enableDoubletap(true)
+            .defaultPage(0)
+            .onLoad(this)
+            .onPageChange(this)
+            .load()
     }
 
     override fun loadComplete(nbPages: Int) {
@@ -49,7 +51,10 @@ class MainActivity : AppCompatActivity(), OnLoadCompleteListener, OnPageChangeLi
     private fun addDot(page: Int) {
         dot = arrayOfNulls(dotCount)
         layoutDot!!.removeAllViews()
-        val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
         params.setMargins(10, 10, 10, 10)
         for (i in dot.indices) {
             dot[i] = TextView(this)
